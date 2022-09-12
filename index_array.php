@@ -54,11 +54,6 @@ $switch = false;
 			echo 'input: '. $sub_array['name']. '<br>';
 			$switch = true;
 		}	
-		if ($switch == true) {
-			echo 'output: '. $input_array[1]['name'];
-			break;
-		}
-
 	}
 	
 
