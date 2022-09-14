@@ -5,7 +5,7 @@ ini_set('display_errors', 'On');
 echo "test massege<br><br>";
 
 
-$inputnumb = [1, 2, 3, 4, 5, 6, 7, "10","10a", "7b", 16];
+$inputnumb = [1, 2, 7, 4, 5, 6, 8, "10","10a", "7b", 16];
 $input = [];
 $inputlet = [];
 foreach ($inputnumb as $value) {
@@ -48,9 +48,6 @@ echo "<br><br>";
 
 
 sort($input);
-// foreach ($input as $key => $val) {
-//     echo "fru[" . $key . "] = " . $val . "\n<br>";
-// }
 echo "самое маленькое число - \n". $input[0]. "<br><br>";
 
 $min_value = null;
@@ -106,12 +103,20 @@ echo "количество чисел в массиве - \n". count($input). "<
 
 
 echo "массив в обратном порядке - \n";
-rsort($input);
-foreach ($input as $val) {
-    echo  $val . "\n";
-}
-echo "<br><br>";
+array_reverse($inputnumb);
 
+$reversed = [];
+for ($i=count($inputnumb)-1; $i>=0  ; $i--) { 
+	if ($i > count($inputnumb)-1){
+		break;
+	}
+	$reversed[]=$inputnumb[$i];
+}
+// print_r($reversed);
+foreach($reversed as $voluem){
+	echo $voluem. ' ';
+}
+echo'<br><br>';
 // игнорирует нечисловые значения
 echo "сумму всех чисел - \n<br>";
 echo array_sum($input). "<br>";
