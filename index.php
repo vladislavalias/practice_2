@@ -5,7 +5,7 @@ ini_set('display_errors', 'On');
 echo "test massege<br><br>";
 
 
-$inputnumb = [1, 2, 3, 4, 5, 6, 7, "10","10a", "7b"];
+$inputnumb = [1, 2, 3, 4, 5, 6, 7, "10","10a", "7b", 16];
 $input = [];
 $inputlet = [];
 foreach ($inputnumb as $value) {
@@ -23,7 +23,7 @@ echo "<br><br>";
 $numbers = range(1, 7);
 shuffle($numbers);
 foreach ($numbers as $number) {
-    echo "$number";
+    echo "$number". ' ';
 }
 echo "<br><br>";
 
@@ -35,6 +35,17 @@ rsort($input);
 // }
 echo "самое больше число - \n". $input[0]. "<br><br>";
 
+$max_value = null;
+
+foreach($input as $value) {
+	if ($value > $max_value){
+		$max_value = $value;
+		
+	}
+}
+echo $max_value;
+echo "<br><br>";
+
 
 sort($input);
 // foreach ($input as $key => $val) {
@@ -42,9 +53,17 @@ sort($input);
 // }
 echo "самое маленькое число - \n". $input[0]. "<br><br>";
 
+$min_value = null;
 
+foreach($input as $value) {
+	if ($value < $min_value or $min_value === null){
+		$min_value = $value;
+	}
+}
+echo $min_value;
+echo "<br><br>";
 
-echo " - вернуть числа кратные 4<br>";
+echo " - вернуть числа кратные 4 <br>";
 $fore = 4;
 foreach($input as $value) {
 	if ($value % $fore == 0) {

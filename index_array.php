@@ -8,7 +8,8 @@ echo "Task with array<br><br>";
 $input_array = [
 	['name' => 'John', 'position' => 'savior', 'salary' => '100000'],
 	['name' => 'T1000', 'position' => 'killer', 'salary' => '500'],
-	['name' => 'T2000', 'position' => 'owner', 'salary' => '1000']];
+	['name' => 'T2000', 'position' => 'owner', 'salary' => '1000'],
+	['name' => 'T0', 'position' => 'o', 'salary' => '0']];
 
 echo " - вернуть сумму зарплат всего отдела <br><br>";
 $sum_salary = 0;
@@ -46,17 +47,27 @@ foreach($input_array as $sub_array){
 
 echo "<br><br> - вернуть список сотрудников с процентным соотношением";  
 echo "<br><br>";
-$name1 = 'John';
-$switch = false;
+$name1 = 'T0';
+$ssalary = 0;
+$calcul = 0;
 
 	foreach($input_array as $sub_array){
 		if($sub_array['name'] === $name1 ){
-			echo 'input: '. $sub_array['name']. '<br>';
-			$switch = true;
+			echo 'input: '. $sub_array['name']. ' '. $sub_array['salary']. '<br>';
+			$ssalary = $sub_array['salary'];
 		}	
 	}
-	
+// if($ssalary > 0){
+	foreach($input_array as $sub_array){
+		if($sub_array['name'] !== $name1 ){
+			$calcul = ($ssalary * 100 )/$sub_array['salary'];
+			echo 'input: '. $sub_array['name'].' '.$calcul. '%<br>';
+			$switch = true;
+		}
 
+	}
+	
+// }
 
 
 echo "<br><br>- вернуть список тех у кого зарплата выше заданной"; 
